@@ -34,10 +34,10 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f0f0f;
+  background: #e8f0f0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cc2200;
+  background: #478B8D;
   border-radius: 3px;
 }
 
@@ -48,7 +48,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #cc2200;
+  color: #478B8D;
 }
 
 /* Animated underline */
@@ -62,7 +62,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #cc2200;
+  background-color: #478B8D;
   transition: width 0.3s ease;
 }
 .nav-link:hover::after {
@@ -98,8 +98,8 @@ input::placeholder, textarea::placeholder {
   transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
 }
 .service-card:hover {
-  border-color: #cc2200;
-  background-color: #222;
+  border-color: #478B8D;
+  background-color: #222; /* retain background for other hover, Tailwind will override */
   transform: translateY(-2px);
 }
 
@@ -108,6 +108,7 @@ input::placeholder, textarea::placeholder {
   transition: background-color 0.25s ease, transform 0.2s ease;
 }
 .diy-card:hover {
+  /* Add border on hover via Tailwind, keep background */
   background-color: #222;
   transform: translateY(-3px);
 }
@@ -125,6 +126,6 @@ input::placeholder, textarea::placeholder {
 .red-rule {
   width: 48px;
   height: 3px;
-  background-color: #cc2200;
+  background-color: #1a6db5;
   margin-bottom: 1rem;
 }

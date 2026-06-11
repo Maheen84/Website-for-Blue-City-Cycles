@@ -10,7 +10,7 @@ export default {
         'bcc-black': '#0f0f0f',
         'bcc-surface': '#1a1a1a',
         'bcc-red': '#cc2200',
-        'bcc-blue': '#3a9bd5',
+        'bcc-blue': '#1a6db5',
         'bcc-text': '#f0f0f0',
         'bcc-muted': '#888888',
         'bcc-divider': '#2a2a2a',
