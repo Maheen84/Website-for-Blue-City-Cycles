@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #f0f0f0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gear pattern SVG background */
+.gear-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23ffffff08' stroke-width='1'%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Ccircle cx='40' cy='40' r='12'/%3E%3Ccircle cx='40' cy='40' r='4'/%3E%3Cline x1='40' y1='14' x2='40' y2='8'/%3E%3Cline x1='40' y1='72' x2='40' y2='66'/%3E%3Cline x1='14' y1='40' x2='8' y2='40'/%3E%3Cline x1='72' y1='40' x2='66' y2='40'/%3E%3Cline x1='22' y1='22' x2='16' y2='16'/%3E%3Cline x1='58' y1='58' x2='64' y2='64'/%3E%3Cline x1='58' y1='22' x2='64' y2='16'/%3E%3Cline x1='22' y1='58' x2='16' y2='64'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Chain link pattern */
+.chain-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cg fill='none' stroke='%23ffffff06' stroke-width='1.5' stroke-linecap='round'%3E%3Cellipse cx='15' cy='15' rx='12' ry='7'/%3E%3Cellipse cx='45' cy='15' rx='12' ry='7'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Barlow Condensed for display */
+.font-display {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #cc2200;
+  border-radius: 3px;
+}
+
+/* Section label style */
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #cc2200;
+}
+
+/* Animated underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #cc2200;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hero clamp font */
+.hero-title {
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+}
+
+/* Form styles */
+input, textarea {
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  color: #f0f0f0;
+  transition: border-color 0.2s ease;
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #cc2200;
+}
+input::placeholder, textarea::placeholder {
+  color: #555;
+}
+
+/* Card hover */
+.service-card {
+  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
+}
+.service-card:hover {
+  border-color: #cc2200;
+  background-color: #222;
+  transform: translateY(-2px);
+}
+
+/* DIY card hover */
+.diy-card {
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+.diy-card:hover {
+  background-color: #222;
+  transform: translateY(-3px);
+}
+
+/* Play button pulse */
+.play-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.play-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(204, 34, 0, 0.5);
+}
+
+/* Red divider line */
+.red-rule {
+  width: 48px;
+  height: 3px;
+  background-color: #cc2200;
+  margin-bottom: 1rem;
+}
