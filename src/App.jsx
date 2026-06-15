@@ -543,6 +543,20 @@ function Footer() {
   )
 }
 
+function CreditBanner() {
+  return (
+    <div className="bg-[#F1F5F9] text-[#6B7280] text-[13px] text-center py-[10px] w-full">
+      Designed & Developed by{' '}
+      <a 
+        href="mailto:biztechresourceanalyst@gmail.com" 
+        className="text-[#00B4D8] font-[600] underline hover:brightness-125 cursor-pointer transition-all duration-200"
+      >
+        BizTech Resource Analyst
+      </a>
+    </div>
+  );
+}
+
 /* =====================================================
    APP ROOT
    ===================================================== */
@@ -557,6 +571,7 @@ export default function App() {
         <Diy />
         <Contact />
       </main>
+      <CreditBanner />
       <Footer />
     </div>
   )
