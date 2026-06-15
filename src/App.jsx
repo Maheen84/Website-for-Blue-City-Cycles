@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { Menu, X, Phone, Mail, MapPin, Wrench, Info, Hammer, AlertCircle, RefreshCw, Settings2, RotateCw, Cog, Paintbrush, SlidersHorizontal, Circle, Play, Clock, CheckCircle } from 'lucide-react'
+
 
 /* =====================================================
    NAVIGATION
@@ -14,18 +16,17 @@ function Nav() {
   }, [])
 
   const links = [
-    { label: 'Services', href: '#services' },
-    { label: 'About', href: '#about' },
-    { label: 'DIY', href: '#diy' },
-    { label: 'Contact', href: '#contact' },
-  ]
+    { label: 'Services', href: '#services', icon: <Wrench size={16} strokeWidth={2} className="mr-2 text-[#4B5563]" /> },
+    { label: 'About', href: '#about', icon: <Info size={16} strokeWidth={2} className="mr-2 text-[#4B5563]" /> },
+    { label: 'DIY', href: '#diy', icon: <Hammer size={16} strokeWidth={2} className="mr-2 text-[#4B5563]" /> },
+    { label: 'Contact', href: '#contact', icon: <Phone size={16} strokeWidth={2} className="mr-2 text-[#4B5563]" /> },
+  ];
 
   return (
     <nav id="main-nav" className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-[#e0e0e0] shadow-lg shadow-black/50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2 group" aria-label="Blue City Cycles Home">
-          <span className="text-[#478B8D] text-3xl font-bold leading-none" style={{ filter: 'drop-shadow(0 0 6px #478B8D)' }}>❄</span>
+        <a href="#hero" className="flex items-center group" aria-label="Blue City Cycles Home">
           <span className="font-display font-bold text-2xl uppercase tracking-wide text-[#111111] hover:text-[#478B8D]">Blue City Cycles</span>
         </a>
 
@@ -33,9 +34,10 @@ function Nav() {
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <li key={l.label}>
-              <a href={l.href} className="nav-link text-[#111111] text-sm font-medium tracking-wide uppercase hover:text-[#111111] transition-colors duration-200 pb-1">
-                {l.label}
-              </a>
+                <a href={l.href} className="nav-link text-[#111111] text-sm font-medium tracking-wide uppercase hover:text-[#111111] transition-colors duration-200 pb-1 flex items-center">
+                  {l.icon}
+                  {l.label}
+                </a>
             </li>
           ))}
           <li>
@@ -44,10 +46,8 @@ function Nav() {
         </ul>
 
         {/* Mobile hamburger */}
-        <button id="mobile-menu-btn" className="md:hidden flex flex-col gap-1.5 p-2" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-          <span className={`block w-6 h-0.5 bg-[#111111] transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-[#111111] transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-[#111111] transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+        <button id="mobile-menu-btn" className="md:hidden p-2" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
@@ -79,9 +79,6 @@ function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden gear-pattern" style={{ position: 'relative', backgroundImage: `linear-gradient(to bottom, rgba(10,20,40,0.72) 0%, rgba(10,20,40,0.60) 100%), url('https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1600&auto=format&fit=crop')`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
       
-      {/* Dark overlay */}
-      
-
       {/* Animated background accent */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-[#E4D329]/5 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#478B8D]/5 blur-3xl pointer-events-none" />
@@ -115,9 +112,6 @@ function Hero() {
             Find Us
           </a>
         </div>
-
-        {/* Scroll indicator */}
-
       </div>
       <div style={{
         position: 'absolute',
@@ -204,17 +198,17 @@ function About() {
    SERVICES
    ===================================================== */
 const SERVICES = [
-  { name: 'Labor', price: '$65/hr', icon: '🔧' },
-  { name: 'Flat Repair', price: '$10–$30', icon: '🛞' },
-  { name: 'Tune Up', price: '$85–$145', icon: '⚙️' },
-  { name: 'Full Overhaul', price: '$260', icon: '🚲' },
-  { name: 'Adjustments', price: '$20–$30', icon: '🔩' },
-  { name: 'Wheel True', price: '$20–$30', icon: '🔄' },
-  { name: 'Wheel Build', price: '$65', icon: '⭕' },
-  { name: 'Bearing Overhaul', price: '$25–$75', icon: '🎯', subtitle: 'Hub, BB & Headset' },
-  { name: 'Steel Frame Modification & Repair', price: 'Quote Required', icon: '🏗️' },
-  { name: 'Custom Powder Coating', price: 'Starting at $225', icon: '🎨' },
-]
+  { name: 'Labor', price: '$65/hr', Icon: Wrench },
+  { name: 'Flat Repair', price: '$10–$30', Icon: AlertCircle },
+  { name: 'Tune Up', price: '$85–$145', Icon: SlidersHorizontal },
+  { name: 'Full Overhaul', price: '$260', Icon: RefreshCw },
+  { name: 'Adjustments', price: '$20–$30', Icon: Settings2 },
+  { name: 'Wheel True', price: '$20–$30', Icon: RotateCw },
+  { name: 'Wheel Build', price: '$65', Icon: Circle },
+  { name: 'Bearing Overhaul', price: '$25–$75', Icon: Cog },
+  { name: 'Steel Frame Modification & Repair', price: 'Quote Required', Icon: Hammer },
+  { name: 'Custom Powder Coating', price: 'Starting at $225', Icon: Paintbrush },
+];
 
 function Services() {
   return (
@@ -227,28 +221,55 @@ function Services() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mb-10">
-          {SERVICES.map((service) => (
-            <div key={service.name} className="service-card bg-white border border-[#e0e0e0] border-l-4 border-[#478B8D] p-6 flex items-center justify-between group cursor-default">
-              <div className="flex items-center gap-4">
-                <span className="text-2xl">{service.icon}</span>
-                <div>
-                  <div className="font-display font-bold text-xl text-[#111111] uppercase tracking-wide group-hover:text-[#478B8D] transition-colors duration-200">
-                    {service.name}
+          {SERVICES.map((service) => {
+            const IconComp = service.Icon;
+            return (
+              <div
+                key={service.name}
+                className="group cursor-default flex items-center justify-between p-6 border-l-4 border-[#478B8D] bg-white border border-[#e0e0e0] hover:border-[#478B8D] transition-all duration-200"
+                style={{ transform: 'translateY(0)' }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
+              >
+                <div className="flex items-center gap-4">
+                  {/* Icon container */}
+                  <div
+                    className="flex items-center justify-center flex-shrink-0 transition-all duration-200"
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      border: '1.5px solid #E5E7EB',
+                      backgroundColor: 'transparent',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = '#EAB308'; e.currentTarget.querySelector('svg').style.color = '#EAB308'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = '#E5E7EB'; e.currentTarget.querySelector('svg').style.color = '#1A1A1A'; }}
+                  >
+                    <IconComp
+                      size={20}
+                      strokeWidth={2}
+                      style={{ color: '#1A1A1A', transition: 'color 0.2s ease' }}
+                    />
                   </div>
-                  {service.subtitle && (
-                    <div className="text-[#555555] text-xs mt-0.5">
-                      {service.subtitle}
+                  <div>
+                    <div className="font-display font-bold text-xl text-[#111111] uppercase tracking-wide group-hover:text-[#478B8D] transition-colors duration-200">
+                      {service.name}
                     </div>
-                  )}
+                    {service.subtitle && (
+                      <div className="text-xs mt-0.5 text-[#555555]">
+                        {service.subtitle}
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="font-display font-bold text-xl text-[#EAB308] whitespace-nowrap">
+                    {service.price}
+                  </span>
                 </div>
               </div>
-              <div className="text-right">
-                <span className="font-display font-bold text-xl text-[#E4D329] whitespace-nowrap">
-                  {service.price}
-                </span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Callout Banner */}
@@ -295,13 +316,13 @@ function DiyCard({ video }) {
         <img src={thumbnail} alt="Video thumbnail" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(13,11,97,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div className="play-btn relative z-10 w-16 h-16 rounded-full bg-[#E4D329] flex items-center justify-center group-hover:bg-[#dd3300]">
-            <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+            <Play className="w-6 h-6 text-white ml-1" />
           </div>
         </div>
       </div>
       {/* Content */}
       <div className="p-6">
-        <h3 className="font-display font-bold text-xl uppercase text-white tracking-wide mb-2 group-hover:text-[#478B8D] transition-colors duration-200">
+        <h3 className="font-display font-bold text-xl uppercase text-[#111111] tracking-wide mb-2 group-hover:text-[#478B8D] transition-colors duration-200">
           {video.title}
         </h3>
         <p className="text-[#555555] text-sm leading-relaxed">
@@ -314,7 +335,6 @@ function DiyCard({ video }) {
     </div>
   );
 }
-// old component removed
 
 function Diy() {
   return (
@@ -379,7 +399,7 @@ function Contact() {
             {/* Hours */}
             <div>
               <h3 className="font-display font-bold text-2xl text-[#111111] uppercase tracking-wide mb-5 flex items-center gap-3">
-                <span className="text-[#E4D329]">⏰</span> Shop Hours
+                <Clock className="w-5 h-5 text-[#E4D329]" /> Shop Hours
               </h3>
               <div className="space-y-3">
                 {HOURS.map(({ day, hours }) => (
@@ -394,31 +414,25 @@ function Contact() {
             {/* Contact info */}
             <div>
               <h3 className="font-display font-bold text-2xl text-[#111111] uppercase tracking-wide mb-5 flex items-center gap-3">
-                <span className="text-[#E4D329]">📞</span> Contact Info
+                <Phone className="text-[#E4D329] w-5 h-5" /> Contact Info
               </h3>
               <div className="space-y-4">
                 <a href="tel:+13122253780" id="contact-phone" className="flex items-center gap-4 text-[#111111] hover:text-[#E4D329] transition-colors group">
-                  <div className="w-10 h-10 bg-[#e8f0fb] flex items-center justify-center text-[#478B8D] group-hover:bg-[#d0e4f9] transition-all duration-200">
-                    📞
-                  </div>
+                  <div className="w-10 h-10 bg-[#e8f0fb] flex items-center justify-center text-[#478B8D] group-hover:bg-[#d0e4f9] transition-all duration-200"><Phone className="w-5 h-5" /></div>
                   <div>
                     <div className="text-xs text-[#555555] uppercase tracking-widest">Phone</div>
                     <div className="font-medium">312-225-3780</div>
                   </div>
                 </a>
                 <a href="mailto:bluecitycycles@gmail.com" id="contact-email" className="flex items-center gap-4 text-[#111111] hover:text-[#E4D329] transition-colors group">
-                  <div className="w-10 h-10 bg-[#e8f0fb] flex items-center justify-center text-[#478B8D] group-hover:bg-[#d0e4f9] transition-all duration-200">
-                    📧
-                  </div>
+                  <div className="w-10 h-10 bg-[#e8f0fb] flex items-center justify-center text-[#478B8D] group-hover:bg-[#d0e4f9] transition-all duration-200"><Mail className="w-5 h-5" /></div>
                   <div>
                     <div className="text-xs text-[#555555] uppercase tracking-widest">Email</div>
                     <div className="font-medium">bluecitycycles@gmail.com</div>
                   </div>
                 </a>
                 <a href="https://maps.google.com/?q=3201+S+Halsted+St,+Chicago,+IL+60608" target="_blank" rel="noopener noreferrer" id="contact-address" className="flex items-center gap-4 text-[#111111] hover:text-[#E4D329] transition-colors group">
-                  <div className="w-10 h-10 bg-[#e8f0fb] flex items-center justify-center text-[#478B8D] group-hover:bg-[#d0e4f9] transition-all duration-200">
-                    📍
-                  </div>
+                  <div className="w-10 h-10 flex items-center justify-center text-[#478B8D] group-hover:bg-[#d0e4f9] transition-all duration-200"><MapPin className="w-5 h-5" /></div>
                   <div>
                     <div className="text-xs text-[#555555] uppercase tracking-widest">Address</div>
                     <div className="font-medium">3201 S Halsted St<br />Chicago, IL 60608</div>
@@ -439,7 +453,7 @@ function Contact() {
             {submitted ? (
               <div className="flex flex-col items-center justify-center py-16 text-center">
                 <div className="w-16 h-16 bg-[#E4D329]/20 rounded-full flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-[#E4D329]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckCircle className="w-8 h-8 text-[#E4D329]" />
                 </div>
                 <h4 className="font-display font-bold text-2xl text-[#111111] uppercase mb-3">Thanks!</h4>
                 <p className="text-[#555555] text-base">
@@ -492,9 +506,10 @@ function Footer() {
         <div className="flex flex-col items-center text-center gap-6">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <span className="text-[#478B8D] text-3xl">❄</span>
-            <span className="font-display font-bold text-2xl uppercase tracking-wide text-white">Blue City Cycles</span>
-          </div>
+  <span className="text-[#478B8D] text-3xl"><Wrench className="w-5 h-5 text-[#478B8D]" /></span>
+  <span className="font-display font-bold text-2xl uppercase tracking-wide text-white">Blue City Cycles</span>
+</div>
+
 
           {/* Nav links */}
           <nav aria-label="Footer navigation">
